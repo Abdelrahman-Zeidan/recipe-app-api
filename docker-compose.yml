@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+    app:
+        build:
+            context: .                     # The location of the "Dockerfile"
+        ports: 
+            - "8000:8000"                  # local port: image port
+        volumes:                           # Volumes is used to update the files in the docker image automatically when we make a changes in local files
+            - ./app:/app
+        command: >                         # The command to run inside image
+            sh -c "python manage.py runserver 0.0.0.0:8000"
