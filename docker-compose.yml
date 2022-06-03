@@ -1,9 +1,11 @@
-version: "3"
+version: "2.3"
 
 services: 
     app:
         build:
             context: .                     # The location of the "Dockerfile"
+            args:
+                - DEV=true
         ports: 
             - "8000:8000"                  # local port: image port
         volumes:                           # Volumes is used to update the files in the docker image automatically when we make a changes in local files
